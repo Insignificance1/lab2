@@ -13,7 +13,6 @@ const PriorityIndicator = styled.div`
                             ? 'orange'
                             : 'red'};
     cursor: pointer;
-    border: ${(props) => (props.isSelected ? '2px solid #000' : 'none')};
     margin-right: 8px;
             &:hover {
                 opacity: 0.5;
@@ -24,7 +23,7 @@ const PriorityIndicator = styled.div`
 
 export const ItemPriority = ({ priority, onChange }) => {
     const handleClick = () => {
-        const newPriority = priority === 3 ? 1 : priority + 1; // Циклическое переключение 1 → 2 → 3 → 1
+        const newPriority = priority === 3 ? 1 : priority + 1;
         onChange(newPriority);
     };
 

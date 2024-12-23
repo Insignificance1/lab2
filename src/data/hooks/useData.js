@@ -37,20 +37,24 @@ export const useSaveNewTodoItem = () => {
 export const useDeleteTodoItem = () => {
   const client = useQueryClient();
 
-  const { mutate } = useMutation({
+  const { mutate, isPending, isSuccess } = useMutation({
     mutationFn: (id) => LocalStorage.deleteTodoItemFromLocalStorage(id),
     onSuccess: () => {
       client.invalidateQueries(['todo']);
     },
   });
 
-  return { mutate };
+  return {
+    mutate,
+    isPending,
+    isSuccess
+  }
 };
 
 export const useToggleTodoItem = () => {
   const client = useQueryClient();
 
-  const { mutate } = useMutation({
+  const { mutate, isPending, isSuccess } = useMutation({
     mutationFn: ({ id, isDone }) =>
         LocalStorage.toggleTodoItemInLocalStorage(id, isDone),
     onSuccess: () => {
@@ -58,12 +62,16 @@ export const useToggleTodoItem = () => {
     },
   });
 
-  return { mutate };
+  return {
+    mutate,
+    isPending,
+    isSuccess
+  }
 };
 export const useUpdateTodoPriority = () => {
   const client = useQueryClient();
 
-  const { mutate } = useMutation({
+  const { mutate, isPending, isSuccess } = useMutation({
     mutationFn: ({ id, priority }) => {
       return LocalStorage.updateTodoPriorityInLocalStorage({ id, priority });
     },
@@ -72,6 +80,10 @@ export const useUpdateTodoPriority = () => {
     },
   });
 
-  return { mutate };
+  return {
+    mutate,
+    isPending,
+    isSuccess
+  }
 };
 

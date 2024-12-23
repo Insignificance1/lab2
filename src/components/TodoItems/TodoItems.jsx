@@ -4,11 +4,11 @@ import { NewTodoItem } from '../TodoItem/NewTodoItem';
 import { TodoItem } from '../TodoItem/TodoItem';
 import { useData } from '../../data/hooks/useData';
 import { SearchInput } from './components/SearchInput';
-import { SortButton } from './components/SortButton'; // Импортируем нашу кнопку
+import { SortButton } from './components/SortButton';
 
 export const TodoItems = () => {
     const [searchValue, setSearchValue] = useState('');
-    const [isSorted, setIsSorted] = useState(false); // Состояние для отслеживания сортировки
+    const [isSorted, setIsSorted] = useState(false);
 
     const { data: todoItems, isLoading } = useData();
 
@@ -58,8 +58,8 @@ export const TodoItems = () => {
                 <SortButton
                     isSorted={isSorted}
                     onToggleSort={toggleSort}
-                    sortOnUrl="/assets/images/png/Sort-on.png"  // URL для активной иконки сортировки
-                    sortOffUrl="/assets/images/png/Sort-off.png" // URL для неактивной иконки сортировки
+                    sortOnUrl="/assets/images/png/Sort-on.png"
+                    sortOffUrl="/assets/images/png/Sort-off.png"
                 />
             </div>
             {todoItemsElements}

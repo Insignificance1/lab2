@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { TodoItemContainer } from './TodoItemContainer';
-import { TodoItemCheckbox } from './TodoItemCheckbox';
 import { ItemPriority } from './ItemPriority';
 import styled from 'styled-components';
 import { useSaveNewTodoItem } from '../../data/hooks/useData';
@@ -17,13 +16,13 @@ const Input = styled.input`
 export const NewTodoItem = () => {
   const { mutate, isPending, isSuccess } = useSaveNewTodoItem();
   const [value, setValue] = useState('');
-  const [priority, setPriority] = useState(1); // 1 - зеленый по умолчанию
+  const [priority, setPriority] = useState(1);
   const inputRef = useRef();
 
   useEffect(() => {
     if (!isPending && isSuccess) {
       setValue('');
-      setPriority(1); // Сбрасываем приоритет
+      setPriority(1);
     }
   }, [isPending, isSuccess]);
 

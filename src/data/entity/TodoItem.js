@@ -2,5 +2,5 @@ export function TodoItem(id, title, isDone, priority = 1) {
   this.id = id;
   this.title = title;
   this.isDone = isDone;
-  this.priority = priority; // Значение по умолчанию — 1
+  this.priority = priority;
 }

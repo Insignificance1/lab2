@@ -19,7 +19,7 @@ export const LocalStorage = {
         }
     
         resolve(data);
-      }, 500);
+      }, 0);
     })
   },
 
@@ -42,7 +42,6 @@ export const LocalStorage = {
       });
     });
   },
-
   toggleTodoItemInLocalStorage: (id, isDone) => {
     return new Promise((resolve) => {
       LocalStorage.getTodoItemsFromLocalStorage().then((todoItems) => {

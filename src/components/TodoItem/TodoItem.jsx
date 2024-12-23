@@ -2,8 +2,9 @@ import React from 'react';
 import styled, { css } from "styled-components";
 import { TodoItemContainer } from './TodoItemContainer';
 import { TodoItemCheckbox } from './TodoItemCheckbox';
-import { useDeleteTodoItem, useToggleTodoItem, useUpdateTodoPriority } from '../../data/hooks/useData';
 import { ItemPriority } from './ItemPriority';
+import { useDeleteTodoItem, useToggleTodoItem, useUpdateTodoPriority } from '../../data/hooks/useData';
+
 
 const checkedCss = css`
     color: #B5B5BA;
@@ -38,7 +39,7 @@ export const TodoItem = ({ id, title, checked, priority }) => {
     const { mutate: toggleTodoItem } = useToggleTodoItem();
     const { mutate: updatePriority } = useUpdateTodoPriority();
 
-    const onCheckboxClick = () => {
+    const handleCheckboxClick = () => {
         toggleTodoItem({ id, isDone: !checked });
     };
 
@@ -54,7 +55,7 @@ export const TodoItem = ({ id, title, checked, priority }) => {
 
     return (
         <TodoItemContainer>
-            <TodoItemCheckbox checked={checked} onClick={onCheckboxClick} />
+            <TodoItemCheckbox checked={checked} onClick={handleCheckboxClick} />
             <Title checked={checked}>{title}</Title>
             <ItemPriority priority={priority} onChange={handlePriorityChange} />
             <Delete onClick={handleDelete} />
